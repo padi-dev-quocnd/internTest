@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'JosefinSansBold';
+  src: url('../fonts/JosefinSansBold.ttf');
+}
+
+@font-face {
+  font-family: 'Josefin Sans, Regular';
+  src: url('../fonts/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'SourceHanSansJPHeavy';
+  src: url('../fonts/SourceHanSansJPH.otf');
+}
+
+@font-face {
+  font-family: 'SourceHanSansJPBold';
+  src: url('../fonts/SourceHanSansJPB.otf');
+}
+
+@font-face {
+  font-family: 'SourceHanSansJPNanol';
+  src: url('../fonts/SourceHanSansJPN.otf');
+}
+
+@font-face {
+  font-family: 'SourceHanSansJPMedium';
+  src: url('../fonts/SourceHanSansJPM.otf');
+}
+
+.bgr-gl-secure {
+  background: linear-gradient(101deg, #E5F0FF 0%, #E8F2FF 32%, #F4F8FF 49%, #EBF3FF 58%, #E4EFFF 66%, #E2EEFF 68%, #D6E8FF 100%);
+}
+
+.bgr-white-css {
+  background: linear-gradient(to right, rgb(240, 249, 255) 0%, rgb(249, 253, 255) 47%, rgb(234, 247, 255) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.wdth-150 {
+  width: calc(100% - 150px);
+}
+
+.fnt-jose {
+  font-family: 'JosefinSansBold';
+}
+
+.fnt-jose-regular {
+  font-family: 'Josefin Sans, Regular';
+  color: rgba(23, 144, 112, 0.171)
+}
+
+.fnt-hansanB {
+  font-family: 'SourceHanSansJPBold';
+}
+
+.fnt-hansanN {
+  font-family: 'SourceHanSansJPNanol';
+}
+
+.fnt-hansanM {
+  font-family: 'SourceHanSansJPMedium';
+}
+
+.fnt-hansanH {
+  font-family: 'SourceHanSansJPHeavy';
+}
+
+.fnt-noto {
+  font-family: "Noto Sans JP";
+}
