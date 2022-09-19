@@ -47,7 +47,6 @@ export default function Control() {
                     <button className='mr-[4px]'><MdPause className='text-[24px]' /></button>
                     <button className=''><MdSkipPrevious className='text-[24px]' /></button>
                     <button className='mr-[4px]'><MdSkipNext className='text-[24px]' /></button>
-
                 </div>
                 <div className='flex items-center w-full flex-col'>
                     <div className='relative w-full flex items-center'>
