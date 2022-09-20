@@ -1,6 +1,6 @@
 import { optionsBanks } from 'constants/selectOptions';
 import { setNetworkProviderThunk } from 'modules/location-information/locationSlice';
-import { changeComponentThunk, closeModalInBotThunk } from 'modules/Modal/ModalSlice';
+import { changeComponentThunk, closeModalViewBotThunk } from 'modules/Modal/ModalSlice';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import { MdClose } from 'react-icons/md';
@@ -29,14 +29,14 @@ export default function NetworkProviderBox({dataList,method}) {
             if (item == value) {
                 active = 'font-bold text-[#000] bg-white'
             }
-            return <button key={index} className={`fnt-hansanN text-[16px] py-[9px] w-full rounded-[10px] ${active} transition-all duration-200 hover:font-bold hover:text-[#000] hover:bg-white`} onClick={() => { handleClickOption(value) }}>{label}</button>
+            return <button key={index} className={`fnt-hansanN text-[16px] text-[#6B6D6F] py-[9px] w-full rounded-[10px] ${active} transition-all duration-200 hover:font-bold hover:text-[#000] hover:bg-white`} onClick={() => { handleClickOption(value) }}>{label}</button>
         })
     }
     const handleCloseModal=()=>{
         if(PrevComponent!==""){
             dispatch(changeComponentThunk(<CheckQualityNetwork/>))
         }
-        dispatch(closeModalInBotThunk());
+        dispatch(closeModalViewBotThunk());
     }
     return (
         <div className='w-[375px] h-[239px] bg-[#E6E6E6] '>

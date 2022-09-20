@@ -1,5 +1,5 @@
 import { checkQualityNetworkThunk } from 'modules/location-information/locationSlice';
-import { changeComponentInBotThunk, closeModalThunk } from 'modules/Modal/ModalSlice';
+import { changeComponentViewBotThunk, closeModalThunk } from 'modules/Modal/ModalSlice';
 import React from 'react'
 import { MdArrowDropDown } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,15 +8,14 @@ import NetworkProviderBox from '../SelectionBox/NetworkProviderBox';
 
 export default function CheckQualityNetwork() {
     const { networkProvider, network } = useSelector(state => state.location);
-    
     const dispatch = useDispatch();
     const handleOpenSelectProvider = () => {
         handleCloseModal()
-        dispatch(changeComponentInBotThunk(<NetworkProviderBox/>));
+        dispatch(changeComponentViewBotThunk(<NetworkProviderBox/>));
     }
     const handleOpenSelectNetwork = () => {
         handleCloseModal()
-        dispatch(changeComponentInBotThunk(<NetWorkBox />))
+        dispatch(changeComponentViewBotThunk(<NetWorkBox />))
     }
     const handleCheckNetwork=()=>{
         dispatch(checkQualityNetworkThunk())

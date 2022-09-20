@@ -1,7 +1,7 @@
 import { Slider } from '@mui/material';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { MdArrowDropDown, MdPause, MdSkipNext, MdSkipPrevious } from "react-icons/md";
-import { changeComponentInBotThunk, changeComponentThunk, changePrevComponentThunk } from 'modules/Modal/ModalSlice';
+import {changeComponentThunk, changeComponentViewBotThunk, changePrevComponentThunk } from 'modules/Modal/ModalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment/moment';
 import DatePicker from 'modules/DatePicker/view/DatePicker';
@@ -23,13 +23,13 @@ export default function Control() {
     }
     const handleOpenSelectProvider=()=>{
         dispatch(changePrevComponentThunk(""))
-        dispatch(changeComponentInBotThunk(<NetworkProviderBox/>))
+        dispatch(changeComponentViewBotThunk(<NetworkProviderBox/>))
     }
     const handleOpenSelectNetwork=()=>{
         dispatch(changePrevComponentThunk(""))
-        dispatch(changeComponentInBotThunk(<NetWorkBox/>))
+        dispatch(changeComponentViewBotThunk(<NetWorkBox/>))
     }
-
+    
   
     return (
         <div className='control w-full absolute bottom-0 px-[16px] py-[12px]'>

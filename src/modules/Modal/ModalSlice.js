@@ -16,20 +16,20 @@ const ModalSlice=createSlice({
             state.Component=action.payload;
             state.visible=true;
         },
-        changeComponentInBot:(state,action)=>{
+        changeComponentViewBot:(state,action)=>{
             state.CompnentModalViewBot=action.payload;
             state.visibleInBot=true;
         },
         openModal:(state,action)=>{
           state.visible=true
         },
-        openModalInBot:(state,action)=>{
+        openModalViewBot:(state,action)=>{
             state.visibleInBot=true
           },
           closeModal:(state,action)=>{
             state.visible=false
           },
-        closeModalInBot:(state,action)=>{
+        closeModalViewBot:(state,action)=>{
             state.visibleInBot=false
         },
         changePrevComponent:(state,action)=>{
@@ -38,24 +38,24 @@ const ModalSlice=createSlice({
     },
     extraReducers: {},
 })
-export const {changeComponent,changeComponentInBot,closeModalInBot,openModalInBot,closeModal,openModal,changePrevComponent}=ModalSlice.actions;
+export const {changeComponent,changeComponentViewBot,closeModalViewBot,openModalViewBot,closeModal,openModal,changePrevComponent}=ModalSlice.actions;
 export const changeComponentThunk=(payload)=>(dispatch)=>{
     dispatch(changeComponent(payload))
 }
-export const changeComponentInBotThunk=(payload)=>(dispatch)=>{
-    dispatch(changeComponentInBot(payload))
+export const changeComponentViewBotThunk=(payload)=>(dispatch)=>{
+    dispatch(changeComponentViewBot(payload))
 }
 export const openModalThunk = (payload) => (dispatch) => {
     dispatch(openModal(payload));
 };
-export const openModalInBotThunk = (payload) => (dispatch) => {
-    dispatch(openModalInBot(payload));
+export const openModalViewBotThunk = (payload) => (dispatch) => {
+    dispatch(openModalViewBot(payload));
 };
 export const closeModalThunk = (payload) => (dispatch) => {
     dispatch(closeModal(payload));
 };
-export const closeModalInBotThunk = (payload) => (dispatch) => {
-    dispatch(closeModalInBot(payload));
+export const closeModalViewBotThunk = (payload) => (dispatch) => {
+    dispatch(closeModalViewBot(payload));
 };
 export const changePrevComponentThunk = (payload) => (dispatch) => {
     dispatch(changePrevComponent(payload));
