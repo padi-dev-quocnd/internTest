@@ -1,11 +1,11 @@
 import { Slider } from '@mui/material';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdArrowDropDown, MdPause, MdSkipNext, MdSkipPrevious } from "react-icons/md";
-import { changeComponentThunk, changePrevComponentThunk } from 'modules/Modal/ModalSlice';
+import { changeComponentInBotThunk, changeComponentThunk, changePrevComponentThunk } from 'modules/Modal/ModalSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment/moment';
 import DatePicker from 'modules/DatePicker/view/DatePicker';
-import { setDateThunk } from 'modules/DatePicker/DatePickerSlices';
+import { openDatePicker, setDateThunk } from 'modules/DatePicker/DatePickerSlices';
 import NetWorkBox from '../SelectionBox/NetworkBox';
 import NetworkProviderBox from '../SelectionBox/NetworkProviderBox';
 export default function Control() {
@@ -14,26 +14,29 @@ export default function Control() {
     const dispatch =useDispatch();
     useEffect(()=>{
         const date =new Date();
-        dispatch(setDateThunk( moment(date).format("MM/DD"))) 
+        dispatch(setDateThunk(date )) 
     },[]);
     const handleOpenDatePicker = () => {
-        dispatch(changeComponentThunk(<DatePicker/>))
+        dispatch(changeComponentThunk(<DatePicker/>));
+        dispatch(openDatePicker())
+        
     }
     const handleOpenSelectProvider=()=>{
         dispatch(changePrevComponentThunk(""))
-        dispatch(changeComponentThunk(<NetworkProviderBox/>))
+        dispatch(changeComponentInBotThunk(<NetworkProviderBox/>))
     }
     const handleOpenSelectNetwork=()=>{
         dispatch(changePrevComponentThunk(""))
-        dispatch(changeComponentThunk(<NetWorkBox/>))
+        dispatch(changeComponentInBotThunk(<NetWorkBox/>))
     }
+
   
     return (
         <div className='control w-full absolute bottom-0 px-[16px] py-[12px]'>
             <div className='flex justify-between items-center'>
                 <div className='flex items-center'>
              
-                    <button className='flex items-center ml-[5px] mr-[8px] fnt-hansanB text-[14px] ' onClick={handleOpenDatePicker}>{dateValue}<MdArrowDropDown className='text-[18px]' /></button> 
+                    <button className='flex items-center ml-[5px] mr-[8px] fnt-hansanB text-[14px] ' onClick={handleOpenDatePicker}>{moment(dateValue).format("MM/DD")}<MdArrowDropDown className='text-[18px]' /></button> 
                     <span className='fnt-hansanM text-[14px]'>8:21</span>
                 </div>
                 <div className='flex items-center'>

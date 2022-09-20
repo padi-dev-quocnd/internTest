@@ -11,18 +11,19 @@ export default function HowToUseView() {
     <div className='container mx-auto py-[20px] px-[16px]'>
       <button className='fnt-hansanN opacity-70 mb-[10px]' onClick={returnPrevPage}>戻る</button>
       <h1 className='fnt-hansanB text-[24px] mb-[20px]'>ご利用方法</h1>
-      <p>
-        テキストが入ります <br />
-        テキストが入りますテキス
-        トが入りますテキス<br />
-        トが入りますテキストが入ります
+      <div>
+        <p className='m-0'>テキストが入ります</p>
+        <p className='m-0'>テキストが入りますテキス
+        トが入りますテキス</p>
+        <p className='m-0'>トが入りますテキストが入ります</p>
         <br />
         <br />
         
-        テキストが入ります<br/>
-         テキストが入りますテキストが入りますテキストが入ります
-        テキストが入りますテキストが入ります テキストが入ります<br/>テキストが入りますテキストが入りますテキストが入ります
-      </p>
+        <p className='m-0'>テキストが入ります</p>
+         <p className='m-0'>テキストが入りますテキストが入りますテキストが入ります
+        テキストが入りますテキストが入ります テキストが入ります</p>
+        <p className='m-0'>テキストが入りますテキストが入りますテキストが入ります</p>
+      </div>
     </div>
   )
 }

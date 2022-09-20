@@ -1,5 +1,36 @@
-div[role="dialog"]{
-    left:50% !important;
-    top: 50% !important;
-    transform: translate(-50%,-50%);
-   }
+.MuiPopperUnstyled-root {
+    width: 375px;
+    height: 353px;
+    top: unset !important;
+    bottom: 0 !important;
+}
+
+.MuiPopperUnstyled-root .MuiPaper-elevation {
+    width: 100%;
+    height: 100%
+}
+
+.MuiPopperUnstyled-root .css-epd502 {
+    width: 100%;
+    height: 100%
+}
+
+.MuiPopperUnstyled-root .MuiCalendarPicker-root {
+    width: 100%;
+    height: 100%
+}
+
+.MuiPopperUnstyled-root .MuiCalendarPicker-root div[role="row"] {
+    margin: 0;
+}
+
+.MuiPopperUnstyled-root .MuiCalendarPicker-root div[role="row"] .MuiTypography-root {
+    width: 53px;
+    height: 24px;
+    border: 1px solid #0000001A;
+    margin: 0;
+}
+
+.MuiPopperUnstyled-root .calender-title {
+    top: -10%;
+}
