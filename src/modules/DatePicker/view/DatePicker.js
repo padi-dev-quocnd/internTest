@@ -36,7 +36,8 @@ export default function DatePickerS() {
     if(position<monthOfYear.length - 1){
       setDateCurrent(`01 ${monthOfYear[position+1]} ${yearCurrent}`)
     }else{
-      setDateCurrent(`01 ${monthOfYear[0]} ${yearCurrent + 1 }`)
+      let newYear=Number(yearCurrent) + 1
+      setDateCurrent(`01 ${monthOfYear[0]} ${newYear }`)
     }
 
 }
