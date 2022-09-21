@@ -13,6 +13,7 @@ import ModalView from '../../Modal/view/ModalView';
 import mapPc from '../../../assets/images/mapPc.png'
 import map from '../../../assets/images/map.png'
 import ModalViewBot from 'modules/Modal/view/ModalViewBot';
+
 export default function LocationInformationView() {
   const dispatch = useDispatch();
   const navigate=useNavigate();
@@ -37,6 +38,7 @@ export default function LocationInformationView() {
       <Control />
       <ModalView />
       <ModalViewBot/>
+  
     </div>
   )
 }

@@ -6,16 +6,40 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDateThunk } from '../DatePickerSlices';
 import { changeComponent, closeModalThunk } from 'modules/Modal/ModalSlice';
-import { MdClose } from 'react-icons/md';
+import { MdClose, MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import moment from 'moment';
 import { DesktopDatePicker } from '@mui/x-date-pickers';
+import { monthOfYear } from 'constants/monthOfYear';
 export default function DatePickerS() {
   const [dateCurrent, setDateCurrent] = React.useState("");
   const { dateValue } = useSelector(state => state.datePicker);
+  console.log(dateCurrent)
   useEffect(() => {
     setDateCurrent(dateValue)
   }, [dateValue])
   const dispatch = useDispatch();
+  const handleClickPrevMonth=()=>{
+      const monthCurrent=moment(dateCurrent).format("MMMM");
+      const yearCurrent=moment(dateCurrent).format("YYYY");
+      const position= monthOfYear.findIndex((month=>month===monthCurrent));
+      if(position>0){
+        setDateCurrent(`01 ${monthOfYear[position-1]} ${yearCurrent}`)
+      }else{
+        setDateCurrent(`01 ${monthOfYear[monthOfYear.length - 1]} ${yearCurrent - 1 }`)
+      }
+
+  }
+  const handleClickNextMonth=()=>{
+    const monthCurrent=moment(dateCurrent).format("MMMM");
+    const yearCurrent=moment(dateCurrent).format("YYYY");
+    const position= monthOfYear.findIndex((month=>month===monthCurrent));
+    if(position<monthOfYear.length - 1){
+      setDateCurrent(`01 ${monthOfYear[position+1]} ${yearCurrent}`)
+    }else{
+      setDateCurrent(`01 ${monthOfYear[0]} ${yearCurrent + 1 }`)
+    }
+
+}
   const handleValueDatePicker = (newValue) => {
     setDateCurrent(newValue)
   }
@@ -43,12 +67,19 @@ export default function DatePickerS() {
     return <button className={`fnt-hansanN  w-full h-[46px] border border-[#0000001A] ${opacity} ${active} focus:bg-[#1DB48B] focus:text-white`} onClick={handleClick}><span className={style}>{day.$D}</span></button>
   }
   const onMonthChange = (newMonth) => {
+    console.log(newMonth)
     setDateCurrent(newMonth.$d)
   }
   const customToolbar = () => {
-    return <div className='calender-title bg-[#E6E6E6] w-[375px]  h-[40px] w-full px-[16px] py-[12px] flex justify-between items-center shadow-[0_0_0_2px_#0000001A]'>
+    return <div className='calender-title'><div className=' bg-[#E6E6E6] w-[375px]  h-[40px] w-full px-[16px] py-[12px] flex justify-between items-center shadow-[0_0_0_2px_#0000001A]'>
       <button onClick={handleCloseModal}><MdClose /></button>
       <button className='fnt-hansanB text-green text-[16px]' onClick={handleConfirm}>完了</button>
+    </div>
+    <div className='bg-[#f1f1f1] flex items-center justify-center gap-[10px] py-[20px]'>
+        <button className='w-[24px] h-[24px] flex items-center justify-center'onClick={handleClickPrevMonth}><MdKeyboardArrowLeft className='text-[#6B6D6F]'/></button>
+        <p className='fnt-hansanB'>{moment(dateCurrent).format("MMMM YYYY")}</p>
+        <button className='w-[24px] h-[24px] flex items-center justify-center' onClick={handleClickNextMonth}><MdKeyboardArrowRight className='text-[#6B6D6F]'/></button>
+    </div>
     </div>
   }
   const customDayOfWeek = (day) => { 
@@ -84,7 +115,7 @@ export default function DatePickerS() {
         ToolbarComponent={customToolbar}
         onMonthChange={onMonthChange}
         dayOfWeekFormatter={customDayOfWeek}
-        
+        onYearChange={(year)=>{return moment(year.$d).format("DD/MM/YY")}}
         renderInput={({ inputProps }) => { return "" }}
       />
     </LocalizationProvider>
