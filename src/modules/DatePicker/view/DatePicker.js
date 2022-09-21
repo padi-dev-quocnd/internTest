@@ -48,9 +48,29 @@ export default function DatePickerS() {
   const customToolbar = () => {
     return <div className='calender-title bg-[#E6E6E6] w-[375px]  h-[40px] w-full px-[16px] py-[12px] flex justify-between items-center shadow-[0_0_0_2px_#0000001A]'>
       <button onClick={handleCloseModal}><MdClose /></button>
-      <button className='fnt-hansanB text-green text-[16px]'onClick={handleConfirm}>完了</button>
+      <button className='fnt-hansanB text-green text-[16px]' onClick={handleConfirm}>完了</button>
     </div>
   }
+  const customDayOfWeek = (day) => { 
+    const dayCurrent=day.toLowerCase();
+    switch (dayCurrent){
+      case "su":
+        return <span className='fnt-hansanN'>月</span>
+      case "mo":
+        return <span className='fnt-hansanN'>火</span>
+      case "tu":
+        return <span className='fnt-hansanN'>水</span>
+      case "we":
+        return <span className='fnt-hansanN'>木</span>
+      case "th":
+        return <span className='fnt-hansanN'>金</span>
+      case "fr":
+        return <span className='fnt-hansanN'>土</span>
+      case "sa":
+        return <span className='fnt-hansanN'>日</span>
+    }
+  }
+  
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} >
       <DesktopDatePicker
@@ -63,6 +83,8 @@ export default function DatePickerS() {
         showToolbar={true}
         ToolbarComponent={customToolbar}
         onMonthChange={onMonthChange}
+        dayOfWeekFormatter={customDayOfWeek}
+        
         renderInput={({ inputProps }) => { return "" }}
       />
     </LocalizationProvider>
